@@ -1,4 +1,4 @@
-package design_pattern;
+package singleton;
 
 public class SingletonGreed {
     // 一開始就建立物件，這樣只要一直回傳這個物件就是簡單的singleton
