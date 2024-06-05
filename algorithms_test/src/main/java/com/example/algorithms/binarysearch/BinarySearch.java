@@ -35,15 +35,15 @@ public class BinarySearch {
      *         找不到就返回 -1
      */
     public static int binarySearchAlternative(int[] arr, int target) {
-        int i = 0, j = arr.length - 1;
-        while (i <= j) {
+        int i = 0, j = arr.length; // 第一處改動
+        while (i < j) { // 第二處改動
             int m = (i + j) >>> 1;
             if (target < arr[m]) {
-                j = m - 1;
-            } else if (arr[m] < target) { // 目標在右邊
+                j = m;  // 第三處改動：j 要變成中間索引
+            } else if (arr[m] < target) {
                 i = m + 1;
             } else {
-                return m; // 找到了
+                return m;
             }
         }
         return -1;
