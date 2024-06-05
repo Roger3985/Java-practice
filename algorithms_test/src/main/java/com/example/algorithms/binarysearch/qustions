@@ -16,4 +16,5 @@
        直覺表示較為直觀。
 
 比較 binarySearch and linearSearch
-binarySearch > linearSearch 請看相對應的.java檔案，裡面有比較執行次數的多寡
+binarySearch(floor(log_2(n)) + 1) vs linearSearch(3n + 3) 請看相對應的.java檔案，裡面有比較執行次數的多寡
+這邊總結：binarySearch 在 n 比較大的時候，搜尋速度會比較好，相比linearSearch(n>=3時）
