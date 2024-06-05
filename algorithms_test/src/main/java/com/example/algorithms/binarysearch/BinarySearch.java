@@ -75,7 +75,7 @@ public class BinarySearch {
      * 二分查找 Leftmost
      * @param arr 待查找的升序陣列
      * @param target 待查找的目標值
-     * @return 找到則返回索引，找不到就返回-1
+     * @return 找到則返回最靠左的索引，找不到就返回-1
      */
     public static int binarySearchLeftmost1(int[] arr, int target) {
         int i = 0, j = arr.length - 1;
@@ -99,7 +99,7 @@ public class BinarySearch {
      * 二分查找 Rightmost
      * @param arr 待查找的升序陣列
      * @param target 待查找的目標值
-     * @return 找到則返回索引，找不到就返回-1
+     * @return 找到則返回最靠右的索引，找不到就返回-1
      */
     public static int binarySearchRightmost1(int[] arr, int target) {
         int i = 0, j = arr.length - 1;
@@ -117,6 +117,46 @@ public class BinarySearch {
             }
         }
         return candidate;
+    }
+
+    /**
+     * 二分查找 Leftmost 升級版
+     * @param arr 待查找的升序陣列
+     * @param target 待查找的目標值
+     * @return 返回 >= target 的最靠左的索引位置
+     */
+    public static int binarySearchLeftmost2(int[] arr, int target) {
+        int i = 0, j = arr.length - 1;
+        while (i <= j) {
+            int m = (i + j) >>> 1;
+            if (target <= arr[m]) {
+                j = m - 1;
+            } else {
+                i = m + 1;
+            }
+        }
+        return i;
+    }
+
+    /**
+     * 二分查找 Rightmost 升級版
+     * @param arr 待查找的升序陣列
+     * @param target 待查找的目標值
+     * @return 返回 <= target 的最靠右的索引位置
+     */
+    public static int binarySearchRightmost2(int[] arr, int target) {
+        int i = 0, j = arr.length - 1;
+        while (i <= j) {
+            int m = (i + j) >>> 1;
+            if (target < arr[m]) {
+                j = m - 1;
+            } else if (arr[m] < target) {
+                i = m + 1;
+            } else {
+                i = m + 1; // 與Leftmost2的唯一差別
+            }
+        }
+        return i - 1;
     }
 
 }
