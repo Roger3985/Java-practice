@@ -28,7 +28,6 @@ public class SingletonTest extends Thread {
         System.out.println("s1:"+s1.hashCode() + " s2:" + s2.hashCode());
         System.out.println();
 
-
         // 兩個執行緒同時執行
         Thread t1 = new SingletonTest("執行緒T1"); // 產生Thread物件
         Thread t2 = new SingletonTest("執行緒T2"); // 產生Thread物件
