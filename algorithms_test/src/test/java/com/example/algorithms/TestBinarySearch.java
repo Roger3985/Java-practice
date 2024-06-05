@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static com.example.algorithms.binarysearch.BinarySearch.binarySearchAlternative;
-import static com.example.algorithms.binarysearch.BinarySearch.binarySearchBasic;
+import static com.example.algorithms.binarysearch.BinarySearch.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestBinarySearch {
@@ -94,6 +93,47 @@ public class TestBinarySearch {
         assertEquals(-1, binarySearchAlternative(arr, 60));
     }
 
+    /**
+     * 測試binarySearchLeftmost 是否正確。
+     */
+    @Test
+    @DisplayName("測試 binarySearchLeftmost 返回 -1")
+    public void test6() {
+        int[] arr = {1, 2, 4, 4, 4, 5, 6, 7};
+        assertEquals(0, binarySearchLeftmost1(arr, 1));
+        assertEquals(1, binarySearchLeftmost1(arr, 2));
+        assertEquals(2, binarySearchLeftmost1(arr, 4));
+        assertEquals(5, binarySearchLeftmost1(arr, 5));
+        assertEquals(6, binarySearchLeftmost1(arr, 6));
+        assertEquals(7, binarySearchLeftmost1(arr, 7));
+
+        assertEquals(-1, binarySearchLeftmost1(arr, 0));
+        assertEquals(-1, binarySearchLeftmost1(arr, 3));
+        assertEquals(-1, binarySearchLeftmost1(arr, 8));
+    }
+
+    /**
+     * 測試binarySearchRightmost 是否正確。
+     */
+    @Test
+    @DisplayName("測試 binarySearchRightmost 返回 -1")
+    public void test7() {
+        int[] arr = {1, 2, 4, 4, 4, 5, 6, 7};
+        assertEquals(0, binarySearchRightmost1(arr, 1));
+        assertEquals(1, binarySearchRightmost1(arr, 2));
+        assertEquals(4, binarySearchRightmost1(arr, 4));
+        assertEquals(5, binarySearchRightmost1(arr, 5));
+        assertEquals(6, binarySearchRightmost1(arr, 6));
+        assertEquals(7, binarySearchRightmost1(arr, 7));
+
+        assertEquals(-1, binarySearchRightmost1(arr, 0));
+        assertEquals(-1, binarySearchRightmost1(arr, 3));
+        assertEquals(-1, binarySearchRightmost1(arr, 8));
+    }
+
+    /**
+     * 利用binarySearch Java查找版
+     */
     @Test
     @DisplayName("binarySearch Java版")
     public void test8() {
@@ -121,6 +161,5 @@ public class TestBinarySearch {
             System.out.println(Arrays.toString(b));
         }
     }
-
 
 }

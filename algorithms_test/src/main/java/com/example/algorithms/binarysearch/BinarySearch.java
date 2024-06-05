@@ -71,4 +71,52 @@ public class BinarySearch {
         return -1;
     }
 
+    /**
+     * 二分查找 Leftmost
+     * @param arr 待查找的升序陣列
+     * @param target 待查找的目標值
+     * @return 找到則返回索引，找不到就返回-1
+     */
+    public static int binarySearchLeftmost1(int[] arr, int target) {
+        int i = 0, j = arr.length - 1;
+        int candidate = -1;
+        while (i <= j) {
+            int m = (i + j) >>> 1;
+            if (target < arr[m]) {
+                j = m - 1;
+            } else if (arr[m] < target) {
+                i = m + 1;
+            } else {
+                // 紀錄後選位置
+                candidate = m;
+                j = m - 1;
+            }
+        }
+        return candidate;
+    }
+
+    /**
+     * 二分查找 Rightmost
+     * @param arr 待查找的升序陣列
+     * @param target 待查找的目標值
+     * @return 找到則返回索引，找不到就返回-1
+     */
+    public static int binarySearchRightmost1(int[] arr, int target) {
+        int i = 0, j = arr.length - 1;
+        int candidate = -1;
+        while (i <= j) {
+            int m = (i + j) >>> 1;
+            if (target < arr[m]) {
+                j = m - 1;
+            } else if (arr[m] < target) {
+                i = m + 1;
+            } else {
+                // 紀錄後選位置
+                candidate = m;
+                i = m + 1; // 與Leftmost1的唯一差別
+            }
+        }
+        return candidate;
+    }
+
 }
