@@ -12,6 +12,7 @@ public class BinarySearch {
      */
     public static int binarySearchBasic(int[] arr, int target) {
         int i = 0, j = arr.length - 1; // 設置指針和初值
+        // L 次 元素在最左邊 L 次, 元素在最右邊 2*L 次
         while (i <= j) { // 範圍內有東西
             // int m = (i + j) / 2;
             int m = (i + j) >>> 1; // 此種寫法比較好，(i + j) / 2 會有問題，請看questions
