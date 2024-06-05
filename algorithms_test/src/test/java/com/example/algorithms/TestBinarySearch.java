@@ -3,6 +3,8 @@ package com.example.algorithms;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static com.example.algorithms.binarysearch.BinarySearch.binarySearchAlternative;
 import static com.example.algorithms.binarysearch.BinarySearch.binarySearchBasic;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -91,5 +93,18 @@ public class TestBinarySearch {
         assertEquals(-1, binarySearchAlternative(arr, 15));
         assertEquals(-1, binarySearchAlternative(arr, 60));
     }
+
+    @Test
+    @DisplayName("binarySearch Java版")
+    public void test8() {
+        int[] arr = {2, 5, 8};
+        int target = 4;
+
+        int i = Arrays.binarySearch(arr, target);
+        System.out.println(i);
+        // -2 = - 插入點 - 1
+        // -2+1 = - 插入點
+    }
+
 
 }
