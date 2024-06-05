@@ -97,6 +97,13 @@ public class TestBinarySearch {
     @Test
     @DisplayName("binarySearch Java版")
     public void test8() {
+        /*
+               [2, 5, 8] a
+               [2, 0, 0, 0] b
+               [2, 4, 0, 0] b
+               [2, 4, 5, 8] b
+         */
+
         int[] arr = {2, 5, 8};
         int target = 4;
 
@@ -104,6 +111,15 @@ public class TestBinarySearch {
         System.out.println(i);
         // -2 = - 插入點 - 1
         // -2+1 = - 插入點
+
+        if (i < 0) {
+            int insertIndex = Math.abs(i + 1); // 插入點索引
+            int[] b = new int[arr.length + 1];
+            System.arraycopy(arr, 0, b, 0, insertIndex);
+            b[insertIndex] = target;
+            System.arraycopy(arr, insertIndex, b, insertIndex + 1, arr.length - insertIndex);
+            System.out.println(Arrays.toString(b));
+        }
     }
 
 
