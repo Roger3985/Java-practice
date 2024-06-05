@@ -3,9 +3,6 @@
 algorithms_test/mvnw
 algorithms_test/mvnw.cmd
 
-
-
-
 ### VS Code ###
 .vscode/
 
@@ -33,7 +30,6 @@ target/
 ### IntelliJ IDEA ###
 .idea
 *.iws
-*.iml
 *.ipr
 
 ### NetBeans ###
@@ -46,5 +42,3 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
-.vscode/
