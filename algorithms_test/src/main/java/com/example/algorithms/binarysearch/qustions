@@ -14,3 +14,6 @@
 
 問題三：都寫成小於符號有啥好處？
        直覺表示較為直觀。
+
+比較 binarySearch and linearSearch
+binarySearch > linearSearch 請看相對應的.java檔案，裡面有比較執行次數的多寡

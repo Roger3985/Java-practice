@@ -18,4 +18,17 @@ public class LinearSearch {
         }
         return -1;
     }
+
+    // 1. 最差的執行情況
+    // 2. 假設每行語句執行一樣
+    /*
+        資料元素個數為 n
+        int i = 0;       1
+        i < arr.length;  n+1
+        i ++;            n
+        a[i] == target;  n
+        return -1;       1
+
+        累計執行次數：3n + 3
+     */
 }

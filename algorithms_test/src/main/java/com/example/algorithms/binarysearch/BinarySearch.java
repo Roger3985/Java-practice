@@ -26,6 +26,27 @@ public class BinarySearch {
         return -1;
     }
 
+    /*
+        1 [2, 3, 4, 5] 5 右側沒找到更差
+        int i = 0, j = arr.length - 1; 2
+        return -1;                     1
+        元素個數        循環次數
+        4 - 7          3        floor(log_2(4)) = 2+1
+        8 - 15         4        floor(log_2(8)) = 3+1
+        16 - 31        5        floor(log_2(16)) = 4+1
+        32 - 63        6        floor(log_2(32)) = 5+1
+        ...            ...
+
+        循環次數：floor(log_2(n)) + 1
+
+        binarySearchBasic的最糟的循環次數為：floor(log_2(n) + 1) * 5 + 4
+        i <= j                 L + 1
+        int m = (i + j) >>> 1; L
+        target < arr[m]        L
+        a[m] < target          L
+        i = m + 1              L
+     */
+
     /**
      * 二分查找改動版
      * Params: a-待查找的升序陣列
