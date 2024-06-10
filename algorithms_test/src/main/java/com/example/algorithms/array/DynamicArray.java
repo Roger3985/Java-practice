@@ -1,5 +1,7 @@
 package com.example.algorithms.array;
 
+import java.util.function.Consumer;
+
 /**
  * 動態陣列實現
  */
@@ -30,7 +32,26 @@ public class DynamicArray {
         size++;
     }
 
+    /**
+     * 查詢元素
+     * @param index 索引位置，在 [0..size) 區間內
+     * @return 該索引位置的元素
+     */
     public int get(int index) { // [0...size)
         return array[index];
+    }
+
+    /**
+     * 遍歷方法一。
+     * @param consumer 遍歷要執行的操作，放入參數，每個元素。
+     */
+    public void forEach(Consumer<Integer> consumer) { // 函數式介面寫法
+        for (int i = 0; i < size; i++) {
+//            System.out.println(array[i]);
+            // 提供 array[i]
+            // 返回 void
+            consumer.accept(array[i]);
+
+        }
     }
 }

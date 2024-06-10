@@ -19,4 +19,17 @@ public class TestDynamicArray {
             System.out.println(dynamicArray.get(i));
         }
     }
+
+    @Test
+    public void test2() {
+        DynamicArray dynamicArray = new DynamicArray();
+        dynamicArray.addLast(1);
+        dynamicArray.addLast(2);
+        dynamicArray.addLast(3);
+        dynamicArray.addLast(4);
+
+        dynamicArray.forEach((element)->{
+            System.out.println(element);
+        });
+    }
 }
