@@ -1,11 +1,12 @@
 package com.example.algorithms.array;
 
+import java.util.Iterator;
 import java.util.function.Consumer;
 
 /**
  * 動態陣列實現
  */
-public class DynamicArray {
+public class DynamicArray implements Iterable<Integer> {
     private int size = 0; // 邏輯大小
     private int capacity = 8; // 容量
     private int[] array = new int[capacity];
@@ -45,7 +46,7 @@ public class DynamicArray {
      * 遍歷方法一。
      * @param consumer 遍歷要執行的操作，放入參數，每個元素。
      */
-    public void forEach(Consumer<Integer> consumer) { // 函數式介面寫法
+    public void foreach(Consumer<Integer> consumer) { // 函數式介面寫法
         for (int i = 0; i < size; i++) {
 //            System.out.println(array[i]);
             // 提供 array[i]
@@ -53,5 +54,25 @@ public class DynamicArray {
             consumer.accept(array[i]);
 
         }
+    }
+
+    /**
+     * 以下為匿名內部類寫法
+     * @return
+     */
+    @Override
+    public Iterator<Integer> iterator() {
+        return new Iterator<Integer>() {
+            int i = 0;
+            @Override
+            public boolean hasNext() { // 有沒有下一個元素
+                return i < size;
+            }
+
+            @Override
+            public Integer next() { // 返回當前的元素，並且移動到下一個元素
+                return array[i++];
+            }
+        };
     }
 }
