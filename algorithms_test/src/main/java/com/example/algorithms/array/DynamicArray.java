@@ -1,7 +1,9 @@
 package com.example.algorithms.array;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.function.Consumer;
+import java.util.stream.IntStream;
 
 /**
  * 動態陣列實現
@@ -58,6 +60,7 @@ public class DynamicArray implements Iterable<Integer> {
 
     /**
      * 以下為匿名內部類寫法
+     * 遍歷方式二：迭代器遍歷
      * @return
      */
     @Override
@@ -74,5 +77,9 @@ public class DynamicArray implements Iterable<Integer> {
                 return array[i++];
             }
         };
+    }
+
+    public IntStream stream() {
+        return IntStream.of(Arrays.copyOfRange(array, 0, size));
     }
 }
