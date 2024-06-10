@@ -12,7 +12,8 @@ public class TestDynamicArray {
         dynamicArray.addLast(2);
         dynamicArray.addLast(3);
         dynamicArray.addLast(4);
-        dynamicArray.addLast(5);
+//        dynamicArray.addLast(5);
+        dynamicArray.add(2, 5);
 
         for (int i = 0; i < 5; i++) {
             System.out.println(dynamicArray.get(i));

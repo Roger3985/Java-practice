@@ -22,7 +22,7 @@ public class DynamicArray {
      * 往後面加上元素
      */
     public void add(int index, int element) {
-        if (index < 0 || index > size) {
+        if (index >= 0 && index < size) {
             System.arraycopy(array, index,
                     array, index + 1, size - index);
         }
