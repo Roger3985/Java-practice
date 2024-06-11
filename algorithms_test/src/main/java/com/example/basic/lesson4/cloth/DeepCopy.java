@@ -1,4 +1,4 @@
-package com.example.basic.cloth;
+package com.example.basic.lesson4.cloth;
 
 public class DeepCopy {
     public static void main(String[] args) {
