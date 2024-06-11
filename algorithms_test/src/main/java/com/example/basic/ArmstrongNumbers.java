@@ -8,7 +8,7 @@ public class ArmstrongNumbers {
         int sum = 0;
         while (number != 0) {
             int digit = number % 10;
-            sum += Math.pow(digit, 3);
+            sum += (int) Math.pow(digit, 3);
             number /= 10;
         }
         return sum == originalNumber;
