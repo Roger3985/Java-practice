@@ -1,7 +1,6 @@
 package com.example.basic.lesson4.string;
 
 import java.util.Scanner;
-
 import static java.lang.System.in;
 import static java.lang.System.out;
 
