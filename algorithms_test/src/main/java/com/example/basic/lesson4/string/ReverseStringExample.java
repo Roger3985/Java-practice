@@ -6,7 +6,7 @@ public class ReverseStringExample {
 
         // Using StringBuilder to reverse the string
         StringBuilder stringBuilder = new StringBuilder(originalString);
-        String reversedString = stringBuilder.reverse().toString();
+        String reversedString = stringBuilder.reverse().toString();  // when not toString the reversedString is object.
 
         // Print the original and reversed strings
         System.out.println("Original String : " + originalString);
