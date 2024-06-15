@@ -1,3 +1,7 @@
 try catch vs throws
 try catch 有明確的抓取錯誤的情況下會使用
 throws 則相反 (環境資訊不足且客戶端可以做相關的例外處理時）
+
+throw vs throws
+throw 在於執行時拋出異常
+throws 在於宣告方法時拋出異常
