@@ -1,0 +1,3 @@
+try catch vs throws
+try catch 有明確的抓取錯誤的情況下會使用
+throws 則相反
