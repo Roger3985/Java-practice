@@ -17,3 +17,9 @@ throws 在於宣告方法時拋出異常
 3. 斷言物件某個時間點的狀態。
 4. 使用斷言取代註解。
 5. 斷言程序流程中絕對不會執行到的程式碼部分。
+
+finally 作用在於釋放資源。
+Java 7 之後有推出 try-catch-resources 的語法來主動關閉資源。
+
+java.lang.AutoCloseable 介面：假如要關閉資源可以實作。
+
