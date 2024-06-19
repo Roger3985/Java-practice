@@ -1,0 +1,17 @@
+＃串流設計觀念
+Java 將輸入輸出抽象化為串流，資料有來源及目的地，銜接兩者的是串流物件。
+
+System.in 標準輸入流，可以使用 System.setIn() 指定 PrintStream 重新指定標準輸入串流。
+System.out 標準輸出流，可以使用 System.setOut() 指定 PrintStream 重新指定標準輸出串流。
+System.err 標準錯誤輸出串流，可以使用 System.setErr() 指定 PrintStream 重新指定標準錯誤輸出串流。
+
+FileInputStream and FileOutputStream 是 InputStream 子類，可以指定檔案名稱建構實例。
+
+ByteArrayInputStream and ByteArrayOutputStream 是 InputStream 子類，可以指定 byte 陣列建構實例。
+
+BufferedInputStream and BufferedOutputStream 是對記憶體緩衝區讀取，可以減少每次讀取都從硬碟讀取，增加讀取速度。
+
+DataInputStream and DataOutputStream 提供讀取、寫入基本型態的方法，像是讀取 int、double、boolean 等方法
+，這些方法會在指定的型態與位元組間轉換，不用親自做位元組與型態轉換的動作。
+
+Reader and Writer 的繼承架構主要目的是為了字元的資料輸入與輸出
