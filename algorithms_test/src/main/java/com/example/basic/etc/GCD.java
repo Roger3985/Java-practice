@@ -1,4 +1,4 @@
-package com.example.basic;
+package com.example.basic.etc;
 
 public class GCD {
 
