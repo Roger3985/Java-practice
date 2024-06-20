@@ -1,0 +1,139 @@
+https://openhome.cc/zh-tw/java/lambda/method-reference/#google_vignette
+
+在 Java 8 中，方法參考（Method Reference）是一種簡潔的表示可重用方法的語法。方法參考提供了一種簡單而清晰的方式來表示一個已經存在的方法，它可以用來代替一些常見的 Lambda 表達式形式。
+
+### 方法參考的類型
+
+方法參考主要有四種類型：
+
+1. **靜態方法參考**
+2. **實例方法參考**
+3. **特定對象的實例方法參考**
+4. **構造器參考**
+
+### 1. 靜態方法參考
+
+語法：`ClassName::methodName`
+
+示例：
+
+```java
+import java.util.function.Function;
+
+public class MethodReferenceExample {
+    public static void main(String[] args) {
+        // 使用 Lambda 表達式
+        Function<String, Integer> lambdaFunction = s -> Integer.parseInt(s);
+
+        // 使用方法參考
+        Function<String, Integer> methodReferenceFunction = Integer::parseInt;
+
+        System.out.println(lambdaFunction.apply("123")); // 輸出 123
+        System.out.println(methodReferenceFunction.apply("456")); // 輸出 456
+    }
+}
+```
+
+### 2. 實例方法參考
+
+語法：`instance::methodName`
+
+示例：
+
+```java
+import java.util.function.Function;
+
+public class MethodReferenceExample {
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+
+        // 使用 Lambda 表達式
+        Function<Integer, Character> lambdaFunction = i -> str.charAt(i);
+
+        // 使用方法參考
+        Function<Integer, Character> methodReferenceFunction = str::charAt;
+
+        System.out.println(lambdaFunction.apply(1)); // 輸出 e
+        System.out.println(methodReferenceFunction.apply(4)); // 輸出 o
+    }
+}
+```
+
+### 3. 特定對象的實例方法參考
+
+語法：`ClassName::methodName`
+
+示例：
+
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class MethodReferenceExample {
+    public static void main(String[] args) {
+        List<String> list = Arrays.asList("a", "b", "c");
+
+        // 使用 Lambda 表達式
+        list.forEach(s -> System.out.println(s));
+
+        // 使用方法參考
+        list.forEach(System.out::println);
+    }
+}
+```
+
+### 4. 構造器參考
+
+語法：`ClassName::new`
+
+示例：
+
+```java
+import java.util.function.Supplier;
+
+public class MethodReferenceExample {
+    public static void main(String[] args) {
+        // 使用 Lambda 表達式
+        Supplier<StringBuilder> lambdaSupplier = () -> new StringBuilder();
+
+        // 使用構造器參考
+        Supplier<StringBuilder> constructorReference = StringBuilder::new;
+
+        System.out.println(lambdaSupplier.get().append("Hello")); // 輸出 Hello
+        System.out.println(constructorReference.get().append("World")); // 輸出 World
+    }
+}
+```
+
+### 總結
+
+方法參考提供了一種更簡潔、更具可讀性的方式來使用現有方法。它們通常用於替代簡單的 Lambda 表達式，特別是在 Lambda 表達式僅僅調用一個方法時。
+
+### 具體示例解釋
+
+假設我們有一個示例，使用 `List<String>` 並按字母順序排序。我們可以用方法參考來簡化代碼：
+
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class MethodReferenceExample {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("B", "X", "A", "C");
+
+        // 使用 Lambda 表達式
+        words.sort((s1, s2) -> s1.compareTo(s2));
+
+        System.out.println(words); // 輸出: [A, B, C, X]
+
+        // 使用方法參考
+        words.sort(String::compareTo);
+
+        System.out.println(words); // 輸出: [A, B, C, X]
+    }
+}
+```
+
+在這個例子中，`words.sort((s1, s2) -> s1.compareTo(s2));` 是使用 Lambda 表達式的排序方式，而 `words.sort(String::compareTo);` 是使用方法參考的排序方式。兩者效果相同，但方法參考更加簡潔和直觀。
+
+通過使用方法參考，可以使代碼更加清晰簡潔，同時減少樣板代碼，增強可讀性。
