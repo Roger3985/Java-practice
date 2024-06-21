@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class StringOrderDemo {
     public static void main(String[] args) {
         String[] names = {"Justin", "caterpiller", "Bush"};
-        Arrays.sort(names, StringOrder::byLength);
+        Arrays.sort(names, StringOrder::byLexicographyIgnoreCase);
         System.out.println(Arrays.toString(names));
     }
 }

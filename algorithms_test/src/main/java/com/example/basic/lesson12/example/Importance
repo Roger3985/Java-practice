@@ -2,7 +2,7 @@ https://openhome.cc/zh-tw/java/lambda/method-reference/#google_vignette
 
 在 Java 8 中，方法參考（Method Reference）是一種簡潔的表示可重用方法的語法。方法參考提供了一種簡單而清晰的方式來表示一個已經存在的方法，它可以用來代替一些常見的 Lambda 表達式形式。
 
-### 方法參考的類型
+### 方法參考的類型(避免到處寫下 Lambda)
 
 方法參考主要有四種類型：
 
@@ -137,3 +137,116 @@ public class MethodReferenceExample {
 在這個例子中，`words.sort((s1, s2) -> s1.compareTo(s2));` 是使用 Lambda 表達式的排序方式，而 `words.sort(String::compareTo);` 是使用方法參考的排序方式。兩者效果相同，但方法參考更加簡潔和直觀。
 
 通過使用方法參考，可以使代碼更加清晰簡潔，同時減少樣板代碼，增強可讀性。
+
+在 Java 中，函式介面（Functional Interface）是一種只包含一個抽象方法的介面。這樣的介面可以用作 lambda 表達式或方法參考的目標。函式介面是一個重要的特性，它在 Java 8 中被引入，用來支持函數式編程風格。
+
+### 定義函式介面
+
+使用 `@FunctionalInterface` 註解可以明確表明一個介面是函式介面。這不是必須的，但可以幫助編譯器檢查是否符合函式介面的要求。
+
+#### 範例 1：定義簡單的函式介面
+
+```java
+@FunctionalInterface
+public interface MyFunctionalInterface {
+    void execute();
+}
+```
+
+這個介面只有一個抽象方法 `execute`，因此可以被視為函式介面。
+
+### 使用 Lambda 表達式實現函式介面
+
+在 Java 8 之前，必須通過匿名類來實現介面。在 Java 8 之後，可以使用 lambda 表達式來實現函式介面，這使得代碼更簡潔和易讀。
+
+#### 範例 2：使用 Lambda 表達式
+
+```java
+public class LambdaExample {
+    public static void main(String[] args) {
+        MyFunctionalInterface myFunc = () -> System.out.println("Executing...");
+        myFunc.execute();
+    }
+}
+```
+
+這裡使用 lambda 表達式 `() -> System.out.println("Executing...")` 來實現 `MyFunctionalInterface` 的 `execute` 方法。
+
+### 預定義的函式介面
+
+Java 8 引入了一些通用的函式介面，這些介面位於 `java.util.function` 包中，包括：
+
+- `Function<T, R>`: 接受一個參數，返回一個結果。
+- `Consumer<T>`: 接受一個參數，無返回值。
+- `Supplier<T>`: 不接受參數，返回一個結果。
+- `Predicate<T>`: 接受一個參數，返回一個布爾值。
+- `UnaryOperator<T>`: 接受一個參數，返回與參數類型相同的結果。
+- `BinaryOperator<T>`: 接受兩個參數，返回與參數類型相同的結果。
+
+#### 範例 3：使用預定義的函式介面
+
+```java
+import java.util.function.Function;
+
+public class PredefinedFunctionalInterfaceExample {
+    public static void main(String[] args) {
+        Function<Integer, String> intToString = (i) -> "Number: " + i;
+        System.out.println(intToString.apply(5)); // Output: Number: 5
+    }
+}
+```
+
+這裡使用 `Function<Integer, String>` 將一個整數轉換為一個字符串。
+
+### 方法參考
+
+方法參考是一種更簡潔的 lambda 表達式語法，可以用來直接引用現有的方法。方法參考的形式有四種：
+
+1. 靜態方法參考：`ClassName::staticMethodName`
+2. 例項方法參考：`instance::methodName`
+3. 特定類型的任意對象的方法參考：`ClassName::methodName`
+4. 建構方法參考：`ClassName::new`
+
+#### 範例 4：方法參考
+
+```java
+import java.util.function.Function;
+
+public class MethodReferenceExample {
+    public static void main(String[] args) {
+        Function<String, Integer> stringToLength = String::length;
+        System.out.println(stringToLength.apply("Hello")); // Output: 5
+    }
+}
+```
+
+這裡使用 `String::length` 作為方法參考，來實現將字符串轉換為其長度的功能。
+
+### 自訂函式介面
+
+除了使用預定義的函式介面，您也可以定義自己的函式介面以滿足特定需求。
+
+#### 範例 5：自訂函式介面
+
+```java
+@FunctionalInterface
+public interface CustomFunctionalInterface {
+    int calculate(int x, int y);
+}
+
+public class CustomFunctionalInterfaceExample {
+    public static void main(String[] args) {
+        CustomFunctionalInterface addition = (a, b) -> a + b;
+        CustomFunctionalInterface multiplication = (a, b) -> a * b;
+
+        System.out.println("Addition: " + addition.calculate(5, 3)); // Output: Addition: 8
+        System.out.println("Multiplication: " + multiplication.calculate(5, 3)); // Output: Multiplication: 15
+    }
+}
+```
+
+這裡定義了一個 `CustomFunctionalInterface`，它有一個抽象方法 `calculate`。然後使用 lambda 表達式來實現這個介面，用於加法和乘法運算。
+
+### 總結
+
+函式介面使 Java 支持更靈活的函數式編程風格。通過使用 lambda 表達式和方法參考，您可以寫出更簡潔、易讀和可維護的代碼。Java 提供了一些預定義的通用函式介面，您也可以根據需要定義自己的函式介面。
