@@ -1,4 +1,4 @@
-package com.example.basic.lesson15.example;
+package com.example.basic.lesson15.example.log;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
