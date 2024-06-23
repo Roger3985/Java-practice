@@ -1,24 +1,13 @@
-### Spring Boot ###
-.mvn/
-algorithms_test/mvnw
-algorithms_test/mvnw.cmd
-ServletPractice/mvnw
-ServletPractice/mvnw.cmd
-
-### VS Code ###
-.vscode/
-
-### IntelliJ ###
-*.idea
-*.iml
-.class
-out/
-
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+### Spring Boot ###
+.mvn/
+ServletPractice/mvnw
+ServletPractice/mvnw.cmd
 
 ### STS ###
 .apt_generated
@@ -32,6 +21,7 @@ target/
 ### IntelliJ IDEA ###
 .idea
 *.iws
+*.iml
 *.ipr
 
 ### NetBeans ###
@@ -44,3 +34,5 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+### VS Code ###
+.vscode/
