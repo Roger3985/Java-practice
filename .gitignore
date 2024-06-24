@@ -4,6 +4,8 @@ algorithms_test/mvnw
 algorithms_test/mvnw.cmd
 ServletPractice/mvnw
 ServletPractice/mvnw.cmd
+demo/mvnw
+demo/mvnw.cmd
 
 ### VS Code ###
 .vscode/
