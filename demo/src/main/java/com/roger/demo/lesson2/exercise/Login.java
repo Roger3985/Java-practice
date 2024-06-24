@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "LoginServlet", urlPatterns = "/login")
+@WebServlet(name = "LoginServlet", urlPatterns = "/login2")
 public class Login extends HttpServlet {
     String header =
             "<!DOCTYPE html>" +
@@ -36,7 +36,7 @@ public class Login extends HttpServlet {
             out.print("<h1>登入成功</h1>");
         } else {
             out.print("<h1>登入失敗</h1><br>");
-            out.print("<a href='login.html'>回登入表單</a>");
+            out.print("<a href='login2.html'>回登入表單</a>");
         }
         out.print(footer);
 
