@@ -1,6 +1,5 @@
-package com.roger.servletpractice.lesson2.exercise;
+package com.roger.demo.lesson2.exercise;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

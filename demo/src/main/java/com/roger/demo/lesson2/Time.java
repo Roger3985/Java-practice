@@ -1,4 +1,4 @@
-package com.roger.servletpractice.lesson2;
+package com.roger.demo.lesson2;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
