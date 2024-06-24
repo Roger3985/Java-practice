@@ -1,4 +1,4 @@
-package com.roger.servletpractice;
+package com.roger.servletpractice.lesson2;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,7 +10,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
-@WebServlet("/time")
+@WebServlet(
+        name = "TimeServlet",
+        urlPatterns = "/time",
+        loadOnStartup = 1)
 public class Time extends HttpServlet {
     @Override
     protected void doGet(
