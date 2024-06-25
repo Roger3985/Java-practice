@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/login")
-public class Login extends HttpServlet {
+@WebServlet("/login4")
+public class Login4 extends HttpServlet {
     @Override
     protected void doPost(
             HttpServletRequest request, HttpServletResponse response)

@@ -21,7 +21,8 @@ public class Avatar extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        AVATAR_DIR = getInitParameter("AVATAR_DIR");
+        AVATAR_DIR = (String) getServletContext().getAttribute("avatar");
+        // AVATAR_DIR = getInitParameter("AVATAR_DIR");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
