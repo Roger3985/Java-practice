@@ -1,4 +1,4 @@
-package com.roger.demo.lesson5.welcome;
+package com.roger.demo.lesson5.listener.welcome;
 
 import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.http.HttpSessionEvent;

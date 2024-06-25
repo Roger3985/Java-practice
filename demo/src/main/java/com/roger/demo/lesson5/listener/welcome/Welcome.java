@@ -1,4 +1,4 @@
-package com.roger.demo.lesson5.welcome;
+package com.roger.demo.lesson5.listener.welcome;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
