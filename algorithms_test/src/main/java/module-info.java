@@ -5,6 +5,8 @@ module Stream {
     requires spring.boot.autoconfigure;
     requires java.sql;
     requires org.hibernate.orm.core;
+    requires spring.context;
+    requires spring.web;
     exports com.example.basic;
     exports com.example.basic.lesson17.example.module;
     opens com.example.basic.lesson17.example.module;
