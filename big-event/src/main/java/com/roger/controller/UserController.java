@@ -36,9 +36,12 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public Result<String> login(@Pattern(regexp = "^\\${5,16}") String username, @Pattern(regexp = "^\\${5,16}") String password) {
+    public Result<String> login(@Pattern(regexp = "^\\w{5,16}$") String username, @Pattern(regexp = "^\\w{5,16}$") String password) {
         // 判斷會員名稱是否存在
         User loginUser = userService.findByUserName(username);
+
+        System.out.println(username);
+        System.out.println(password);
 
         // 判斷該會員是否存在
         if (loginUser == null) {
