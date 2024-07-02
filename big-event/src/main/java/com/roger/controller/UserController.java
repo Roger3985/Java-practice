@@ -3,6 +3,7 @@ package com.roger.controller;
 import com.roger.pojo.Result;
 import com.roger.pojo.User;
 import com.roger.service.UserService;
+import com.roger.utils.MD5Utils;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -32,5 +33,24 @@ public class UserController {
             // 佔用
             return Result.error("會員名已被佔用");
         }
+    }
+
+    @PostMapping("/login")
+    public Result<String> login(@Pattern(regexp = "^\\${5,16}") String username, @Pattern(regexp = "^\\${5,16}") String password) {
+        // 判斷會員名稱是否存在
+        User loginUser = userService.findByUserName(username);
+
+        // 判斷該會員是否存在
+        if (loginUser == null) {
+            return Result.error("會員名稱錯誤");
+        }
+
+        // 判斷密碼是否正確 loginUser 物件中的 password 是密文
+        if (MD5Utils.getMD5(password).equals(loginUser.getPassword())) {
+            // 登入成功
+            return Result.success("jwt token 令牌...");
+        }
+
+        return Result.error("密碼錯誤");
     }
 }
