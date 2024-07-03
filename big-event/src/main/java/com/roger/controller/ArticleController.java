@@ -16,13 +16,14 @@ public class ArticleController {
     public Result<String> list(@RequestHeader(name = "Authorization") String token,
                                HttpServletResponse response) {
         // 驗證 token
-        try {
-            Map<String, Object> claims = JwtUtil.verifyToken(token);
-            return Result.success("所有的文章資料");
-        } catch (Exception e) {
-            // http 回應頭狀態碼為 401
-            response.setStatus(401);
-            return Result.error("未登入");
-        }
+//        try {
+//            Map<String, Object> claims = JwtUtil.verifyToken(token);
+//            return Result.success("所有的文章資料");
+//        } catch (Exception e) {
+//            // http 回應頭狀態碼為 401
+//            response.setStatus(401);
+//            return Result.error("未登入");
+//        }
+        return Result.success("所有的文章資料");
     }
 }
